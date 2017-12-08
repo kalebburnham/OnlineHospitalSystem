@@ -4,6 +4,7 @@ using System;
 using System.Web;
 using System.Web.UI;
 using OnlineHospitalSystem;
+using System.Linq;
 
 public partial class Account_Login : Page
 {
@@ -20,6 +21,10 @@ public partial class Account_Login : Page
 
         protected void LogIn(object sender, EventArgs e)
         {
+
+            DataEntities db = new DataEntities();
+            
+
             if (IsValid)
             {
                 // Validate the user password
@@ -28,7 +33,21 @@ public partial class Account_Login : Page
                 if (user != null)
                 {
                     IdentityHelper.SignIn(manager, user, RememberMe.Checked);
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
+
+                    bool isDoctor = (from doctor in db.Doctors
+                                    where doctor.UserName == user.UserName
+                                    select doctor).Any();
+                                
+                    if (isDoctor)
+                    {
+                        Response.Redirect("../LoggedIn/Doctor.aspx");
+                    } else
+                    {
+                        Response.Redirect("../LoggedIn/Patient.aspx");
+                    }
+                                
+                    // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
                 else
                 {
