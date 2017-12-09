@@ -11,4 +11,14 @@ public partial class LoggedIn_Doctor : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("SendMessage.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewMessages.aspx");
+    }
 }

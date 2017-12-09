@@ -10,7 +10,16 @@
     <form id="form1" runat="server">
     <div>
     
-        Welcome, Patient.</div>
+        Welcome, Patient.<br />
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send Message" />
+        <br />
+        <br />
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="View Messages" />
+        <br />
+        <br />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Create Appointment" />
+        </div>
     </form>
 </body>
 </html>

@@ -10,7 +10,12 @@
     <form id="form1" runat="server">
     <div>
     
-        Welcome, doc.</div>
+        Welcome, doc.<br />
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send Message" />
+        <br />
+        </div>
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="View Messages" />
     </form>
 </body>
 </html>
