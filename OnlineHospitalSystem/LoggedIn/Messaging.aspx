@@ -18,6 +18,11 @@
         <asp:SqlDataSource ID="Patients" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name] FROM [Patient]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="Doctors" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name] FROM [Doctor]"></asp:SqlDataSource>
         <br />
+        Message:<br />
+&nbsp;<asp:TextBox ID="TextBox1" runat="server" Height="120px" Width="284px"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send Message" />
         <br />
     
     </div>
