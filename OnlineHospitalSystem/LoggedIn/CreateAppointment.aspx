@@ -46,7 +46,7 @@
         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Create New Appointment" />
+        <asp:Button ID="Button1" runat="server" Text="Create New Appointment" OnClick="Button1_Click" />
     
     </div>
     </form>
