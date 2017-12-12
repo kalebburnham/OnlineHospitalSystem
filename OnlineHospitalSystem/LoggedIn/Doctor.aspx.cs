@@ -23,11 +23,5 @@ public partial class LoggedIn_Doctor : System.Web.UI.Page
         Response.Redirect("ViewMessages.aspx");
     }
 
-    protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
-    {
-        FormsAuthentication.SignOut();
-        Session.Abandon();
-        Response.Redirect("../Default.aspx");
-        
-    }
+   
 }
