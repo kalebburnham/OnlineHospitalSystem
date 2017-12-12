@@ -27,13 +27,12 @@ public partial class Account_Login : Page
 
             if (IsValid)
             {
-                // Validate the user password
                 var manager = new UserManager();
                 ApplicationUser user = manager.Find(UserName.Text, Password.Text);
                 if (user != null)
                 {
                     IdentityHelper.SignIn(manager, user, RememberMe.Checked);
-
+                    
 
                     bool isDoctor = (from doctor in db.Doctors
                                     where doctor.UserName == user.UserName
@@ -41,13 +40,20 @@ public partial class Account_Login : Page
                                 
                     if (isDoctor)
                     {
+                        var fullName = (from doctor in db.Doctors
+                                        where doctor.UserName == user.UserName
+                                        select doctor.Name).First();
+                        Session["Name"] = fullName;
                         Response.Redirect("../LoggedIn/Doctor.aspx");
+                        
                     } else
                     {
+                        var fullName = (from patient in db.Patients
+                                        where patient.Username == user.UserName
+                                        select patient.Name).First();
+                        Session["Name"] = fullName;
                         Response.Redirect("../LoggedIn/Patient.aspx");
                     }
-                                
-                    // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
                 else
                 {

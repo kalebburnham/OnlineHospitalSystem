@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Appointment">
           <Key>
             <PropertyRef Name="Id" />
@@ -44,9 +44,9 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Text" Type="varchar" MaxLength="1000" Nullable="false" />
-          <Property Name="DoctorUsername" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PatientUsername" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="TO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FROM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="Hospital">
@@ -162,8 +162,7 @@
             <End Role="Patient" EntitySet="Patient" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -213,10 +212,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DoctorUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PatientUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Date" Type="String" Nullable="false" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="TO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FROM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Hospital">
           <Key>
@@ -379,10 +378,10 @@
           <EntitySetMapping Name="Emails">
             <EntityTypeMapping TypeName="DataModel.Email">
               <MappingFragment StoreEntitySet="Email">
+                <ScalarProperty Name="FROM" ColumnName="FROM" />
+                <ScalarProperty Name="TO" ColumnName="TO" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="DoctorUsername" ColumnName="DoctorUsername" />
-                <ScalarProperty Name="PatientUsername" ColumnName="PatientUsername" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
               </MappingFragment>

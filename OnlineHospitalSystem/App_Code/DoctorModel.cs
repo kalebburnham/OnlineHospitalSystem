@@ -70,10 +70,10 @@ public partial class Email
 {
     public int Id { get; set; }
     public string Text { get; set; }
-    public string DoctorUsername { get; set; }
-    public string PatientUsername { get; set; }
-    public System.DateTime Date { get; set; }
+    public string Date { get; set; }
     public System.TimeSpan Time { get; set; }
+    public string TO { get; set; }
+    public string FROM { get; set; }
 }
 
 public partial class Hospital
