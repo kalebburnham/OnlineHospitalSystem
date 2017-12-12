@@ -39,5 +39,7 @@ public partial class LoggedIn_Messaging : System.Web.UI.Page
         
         db.Emails.Add(message);
         db.SaveChanges();
+
+        TextBox1.Text = " ";
     }
 }
